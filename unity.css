@@ -1,0 +1,519 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+/* Add CSS for tags */
+.tags {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Styles for left side */
+#left-side {
+    flex: 4;
+    padding: 20px;
+    margin: 50px 0px;
+}
+
+/* Styles for right side */
+#right-side {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+}
+
+#images-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.image-item {
+    width: calc(33.33% - 20px);
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    overflow: hidden;
+}
+
+.image-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 6px 5px 6px 1px #929292;
+}
+.image-item.visible p{
+font-size: 20px;
+}
+
+.image-item img {
+    width: 100%;
+    height: 300px; /* Updated image height */
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-out;
+}
+
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+.custom-link-button {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.custom-link-button:hover {
+    background-color: #0056b3;
+}
+
+#load-more {
+    padding: 10px 20px;
+    background-color: #133850; /* Initial background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px; /* Rounded corners */
+}
+
+#load-more:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.recent-uploads, .comments, .top-uploads {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.upload-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.upload-item p {
+    
+    margin: 0;
+}
+
+
+/* Basic Navbar Styling */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.navbar .logo h2 {
+    margin: 0;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Dropdown Styles */
+.dropdown:hover .dropdown-menu,
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1268px) {
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 15px;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    height: 70vh;
+    background: url(img/15.jpg) center center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Hero Section Responsive */
+@media (max-width: 1268px) {
+    .hero-section {
+        height: 50vh;
+        width: 106%;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+.title h1 {
+
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
+/*responsive*/
+@media (max-width: 1268px) {
+    #container {
+        flex-direction: column;
+    }
+
+    #left-side {
+        width: 100%; /* Full width for the left side */
+        padding: 10px; /* Adjust padding */
+    }
+
+    #right-side {
+        width: 100%; /* Full width for the right side */
+        padding: 10px; /* Adjust padding */
+        border-left: none; /* Remove left border on mobile */
+        margin-top: 20px; /* Add margin to separate from the left side */
+    }
+
+    #images-container {
+        justify-content: center;
+    }
+
+    .image-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 680px) {
+    .image-item {
+        width: calc(100% - 20px);
+    }
+}
+
+
+
+.selection-system {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allows buttons to wrap onto multiple lines on smaller screens */
+}
+
+.filter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px; /* Added margin to ensure buttons have space around them */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1 1 auto; /* Allows buttons to shrink and grow as needed */
+    text-align: center; /* Center text within buttons */
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.filter-button.active {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 1268px) {
+    .filter-button {
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+        margin: 5px; /* Adjust margin for better spacing */
+    }
+}
+
+@media (max-width: 680px) {
+    .selection-system {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .filter-button {
+        width: 100%; /* Make buttons full-width on very small screens */
+        text-align: center; /* Ensure text is centered */
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+    }
+}
+
+
+/* Style for clickable titles */
+.image-item a {
+    /* Set a custom color for the title */
+    text-decoration: none; /* Remove the underline */
+    font-size: 18px; /* Adjust the font size */
+    font-weight: bold; /* Make the title bold */
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the title */
+.image-item a:hover {
+    /* Change color on hover */
+
+    transform: scale(1.05); /* Slightly enlarge the title on hover */
+    
+}
+
+/* Optional: Style the paragraph containing the title */
+.image-item p {
+    color: #000000;
+    margin: 10px 0; /* Add some space around the title */
+    font-family: 'Roboto', sans-serif; /* Optional: Choose a modern font */
+}
+
+
+
+
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
+    background: #007bff;
+    padding: 10px;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+.news-channel {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #fff677;
+    width: 300px;
+    padding: 6px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+   
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.sidebar h2 {
+    margin: 0;
+}
+
+.ticker-container {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: #007bff;
+    height: 50px; /* Fixed height */
+}
+
+.ticker {
+    color: white;
+    display: flex;
+    animation: scroll 8s linear infinite; /* Adjust duration for speed */
+}
+
+.news-item {
+    padding: 15px 30px;
+    white-space: nowrap;
+    font-size: 20px; /* Default font size */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        
+        width: 250px; /* Reduce sidebar width for smaller screens */
+        font-size: 11px; /* Slightly smaller font size */
+    }
+
+    .news-item {
+        font-size: 18px; /* Smaller font size for news items */
+        padding: 10px 20px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        
+        width: 220px; /* Further reduce sidebar width */
+        font-size: 9px; /* Smaller font size */
+    }
+
+    .news-item {
+        font-size: 16px; /* Smaller font size for news items */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    .ticker-container {
+        height: 40px; /* Reduced height for smaller screens */
+    }
+}
+/* Styling the total search results display */
+.total-results {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    background-color: #f9f9f9;
+    padding: 8px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.total-results:hover {
+    background-color: #e6e6e6;
+    color: #222;
+}

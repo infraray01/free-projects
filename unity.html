@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFRA RAY</title>
+    <link rel="stylesheet" href="unity.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h2>INFRA RAY</h2>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Service 1</a></li>
+                    <li><a href="#">Service 2</a></li>
+                    <li><a href="#">Service 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="title">
+            <h1>UNITY ENGINE ASSETS</h1>
+        </div>
+    </div>
+    
+
+    <div class="news-channel">
+        <div class="sidebar">
+            <h2>UPLOADS</h2>
+        </div>
+        <div class="ticker-container">
+            <div class="ticker">
+                <div class="news-item">Ace Air Fighter FPS Framework</div>
+                <div class="news-item">Card Game Starter Kit</div>
+                <div class="news-item">Knife Up</div>
+                <div class="news-item">Shooter IO with Battle Royale game mode</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by title...">
+    </div>
+    <p id="total-results" class="total-results">Total search found: 0</p>
+    
+
+
+    
+    <div class="title"><h1>UNITY ASSETS:  </h1></div>
+    
+    <div class="selection-system">
+        <button class="filter-button" data-tag="all">All</button>
+        <button class="filter-button" data-tag="environment">Environment</button>
+        <button class="filter-button" data-tag="templates">Templates</button>
+        <button class="filter-button" data-tag="codes">Codes</button>
+        <button class="filter-button" data-tag="plugin">Plugin</button>
+        <button class="filter-button" data-tag="GUI">GUI</button>
+    </div>
+
+
+    <div id="container">
+        <div id="left-side">
+            <div id="images-container">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+            <button id="load-more">Load More</button>
+        </div>
+        <div id="right-side">
+            <div id="search-results" class="search-results"></div>
+            
+            <!-- Add content for recent posts and news here -->
+            <div class="recent-uploads">
+                <h3>Recent Uploads</h3>
+                <!-- Add some sample recent uploads -->
+                <div class="upload-item">
+                    <img src="img/unity template/1.png" alt="Recent Upload 1">
+                    <p>Recent Upload 1</p>
+                </div>
+                <div class="upload-item">
+                    <img src="img/unity template/2.png" alt="Recent Upload 2">
+                    <p>Recent Upload 2</p>
+                </div>
+            </div>
+            <div class="comments">
+                <h3>Comments</h3>
+                <p>Comment 1: Great images!</p>
+                <p>Comment 2: Loved it!</p>
+            </div>
+            <div class="top-uploads">
+                <h3>Top Uploads</h3>
+                <div class="upload-item">
+                    <img src="img/unity template/4.png" alt="Top Upload 1">
+                    <p>Top Upload 1</p>
+                </div>
+                <div class="upload-item">
+                    <img src="img/unity template/6.png" alt="Top Upload 2">
+                    <p>Top Upload 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="unity.js"></script>
+   
+   
+
+
+</body>
+
+</html>
